@@ -8,11 +8,32 @@
     <style>
       * { box-sizing: border-box; }
       body { margin: 0; color: #20242a; background: #fafafa; font-family: system-ui, sans-serif; }
-      main { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
-      p { line-height: 1.6; }
-      .demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 20px 0; }
-      .demo-controls button, select { padding: 8px 12px; max-width: 100%; font: inherit; }
-      iframe { width: 100%; min-height: 220px; border: 1px solid #d5d8dc; background: white; }
+      main { max-width: 1440px; margin: 32px auto; border: 1px solid #d5d8dc; border-radius: 8px; background: white; }
+      .demo-heading, .demo-controls, .demo-panels, footer { padding: 20px; }
+      h1 { margin: 0; font-size: 22px; }
+      .demo-heading p { margin: 6px 0 0; color: #555; }
+      .demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; border-block: 1px solid #e5e5e5; }
+      .demo-controls button, .demo-controls select { padding: 8px 14px; max-width: 100%; font: inherit; border: 1px solid #ccc; border-radius: 6px; background: white; cursor: pointer; }
+      .demo-controls button:disabled { opacity: .45; cursor: default; }
+      .demo-save-controls { display: flex; gap: 10px; margin-left: auto; }
+      .demo-controls .demo-save { background: #333; color: white; border-color: #333; }
+      .demo-feedback { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 12px 20px 0; font-size: 13px; }
+      .demo-panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+      .demo-panels section { min-width: 0; }
+      .demo-panels .html-source-header, .demo-preview h2 { min-height: 32px; margin: 0 0 8px; font: 600 15px/32px system-ui, sans-serif; }
+      .demo-panels .html-source-editor textarea, .demo-panels .html-source-editor .tiptap { min-height: 480px; max-height: 70vh; }
+      .demo-preview { display: flex; flex-direction: column; }
+      iframe { width: 100%; min-height: 520px; flex: 1; border: 1px solid #c6c9ce; background: white; }
+      footer { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; border-top: 1px solid #e5e5e5; font-size: 12px; color: #555; }
+      .demo-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      @media (max-width: 760px) {
+        main { margin: 12px; }
+        .demo-heading, .demo-controls, .demo-panels, footer { padding: 14px; }
+        .demo-feedback { padding-inline: 14px; }
+        .demo-panels { grid-template-columns: minmax(0, 1fr); }
+        .demo-panels .html-source-editor textarea, .demo-panels .html-source-editor .tiptap { min-height: 360px; }
+        iframe { min-height: 400px; }
+      }
     </style>
   </head>
   <body>
